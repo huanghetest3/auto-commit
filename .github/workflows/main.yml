@@ -1,4 +1,4 @@
-name: Sang
+name: huanghe
 on:
 
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "*/10 * * * *" # 每天的 0:23 执行
+    - cron: "23 0 * * *" # 每天的 0:23 执行
 
 jobs:
   autogreen:
@@ -30,8 +30,8 @@ jobs:
 
       - name: Auto commit with random number
         run: |
-          git config --local user.email "huanghe@upchh.cn" 
-          git config --local user.name "huanghetest3"
+          git config --local user.email "huanghe4@upchh.cn" 
+          git config --local user.name "huanghetest4"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           ./random_commit.sh
